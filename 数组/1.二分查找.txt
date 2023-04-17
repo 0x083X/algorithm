@@ -1,0 +1,20 @@
+难点 ：
+    1. while循环中 left<right 还是 left<=right
+    2. 更改left和right位置时需不需要+1或者-1
+
+核心要点：
+    1.在二分查找中始终有区间的概念，在查找过程中不能去修改区间的定义,整道题就是围绕着区间来解题的。
+    
+情况1：区间是[left,right] 
+    1.刚开始满足区间的 left=0,right=nums.length-1
+    2.while循环中满足区间的要求是 left <= right
+    3.在target比nums[middle]大时，为满足区间left=middle+1,如果left=middle的话nums[left]是明确比target小的所以不在区间内所以剔除.以下同理
+    4.target比nums[middle]小，right=middle-1
+情况2：区间是[left,right)
+    1.刚开始的left=0,right=nums.length
+    2.while循环的条件是left<right
+    3.target比nums[middle]小 , right=middle
+    4.target比nums[middle]大 , left=middle+1
+
+注意：
+    1.没有(left,right]这种写法
